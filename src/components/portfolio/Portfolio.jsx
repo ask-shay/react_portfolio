@@ -6,26 +6,34 @@ const items = [
   {
     id: 1,
     title: "E-Commerce App",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "./project1.png",
+    desc: "E-Commerce design system for UNITON. Enhancing the clothing brand with seamless shopping experiences on web and mobile devices",
+    tools:" React   Redux   Node.js   Express   Styled-Components",
+    href: "https://github.com/ask-shay/Uniton",
   },
   {
     id: 2,
     title: "Admin Dashboard",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "./project2.png",
+    desc: "React admin dashboard, offering streamlined data management, analytics, customisation and seamless user experience",
+    tools:" React   Data-Visualisation   React-Context-API   Syncfusion",
+    href: "https://github.com/ask-shay/Multi-Vision",
   },
   {
     id: 3,
     title: "Project Management",
-    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "./project3.jpg",
+    desc: "Crop mapping and crop monitoring using infrared satellite.Freelancing project with Cropinno and Patanjali",
+    tools:" Analytical   Team-Management   Resource-Allocation   MS-Office",
+    href: "https://ask-shay.github.io/#projects",
   },
   {
     id: 4,
     title: "Visual Presentation Design",
-    img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "./project4.png",
+    desc: "Fashion presentation design and technical assistance for Central and The Breaking Point",
+    tools: "Visual-Design   Communication   Technical   Backstage-Coordination",
+    href: "https://ask-shay.github.io/#projects",
   },
 ];
 
@@ -38,6 +46,10 @@ const Single = ({ item }) => {
 
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
+  const openLink = () => {
+    window.open(item.href, "_blank")
+  }
+
   return (
     <section >
       <div className="container">
@@ -48,7 +60,15 @@ const Single = ({ item }) => {
           <motion.div className="textContainer" style={{y}}>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button>See Demo</button>
+            <div>
+              {item.tools && item.tools.split(" ").map((tool, index) => (
+                <span key={index} style={{ marginRight: '15px' }}>
+                  {tool}
+                </span>
+              ))}
+            </div>
+             <button onClick={openLink}>See Demo</button>
+            
           </motion.div>
         </div>
       </div>
